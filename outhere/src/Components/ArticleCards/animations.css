@@ -1,0 +1,13 @@
+.scaleup:hover{
+    animation: scale 1s ease 0s 1 normal forwards;
+}
+
+@keyframes scale {
+    0% {
+		transform: scale(1);
+	}
+
+	100% {
+		transform: scale(1.1);
+	}
+}
