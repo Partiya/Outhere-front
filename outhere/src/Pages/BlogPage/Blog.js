@@ -5,9 +5,11 @@ import {BsArrowRight} from 'react-icons/bs'
 import ArticleCards from '../../Components/ArticleCards/Articlecards';
 import FeaturedArticle from '../../Components/FeaturedArticle/FeaturedArticle';
 import ArticleCard2 from '../../Components/ArticleCards/ArticleCards2';
+import Login from '../../Components/Login/Login';
 function Blog() {
     return (
-        <div className=''>
+        <div scro id='main' className='h-full overflow-y-hidden'>
+            <Login/>
             <div className='w-full h-[90px] items-center  flex justify-between '>
                 <div className=''>
                     <button>
@@ -21,7 +23,12 @@ function Blog() {
                     <button>
                     <AiOutlineSearch className='w-[30px] h-[30px] mr-2'/>
                     </button>
-                    <button>
+                    <button onClick={()=>{
+                        document.getElementById('login').classList.remove('hidden')
+                        document.getElementById('login').classList.add('fadein')
+                        document.getElementById('login').classList.remove('fadeout')
+                    }
+                }>
                     <TbUserCircle className='w-[30px] h-[30px] mr-4'/>
                     </button>
 
