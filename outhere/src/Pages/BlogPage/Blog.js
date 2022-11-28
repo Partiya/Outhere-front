@@ -28,24 +28,24 @@ function Blog() {
                 </div>
             </div>
                 <hr className='w-full h-[1px]'></hr>
-            <div className='w-full  flex justify-between '>
+            <div className='w-full  lg:flex justify-between '>
                 <div>
-                <p className='text-[140px] ml-14 p-0 m-0 font-normal '>Stories</p>
+                <p className='text-[140px] lg:ml-14 ml-5 p-0 m-0 font-normal '>Stories</p>
                 </div>
-                <div className='flex  items-end    mr-28'>
-                    <button className='border-b-2 px-3 text-2xl pb-2 mx-3 border-b-black'>
+                <div className='flex lg:text-2xl text-[15px] items-end    mr-28'>
+                    <button className='border-b-2 px-3  pb-2 lg:mx-3 mx-2 border-b-black'>
                         Fantasy
                     </button>
-                    <button className='border-b-2 px-3 text-2xl pb-2 mx-3'>
+                    <button className='border-b-2 px-3  pb-2 lg:mx-3 mx-2'>
                         Romance
                     </button>
-                    <button className='border-b-2 px-3 text-2xl pb-2 mx-3'>
+                    <button className='border-b-2 px-3  pb-2 lg:mx-3 mx-2'>
                         Action
                     </button>
-                    <button className='border-b-2 px-3 text-2xl pb-2 mx-3'>
+                    <button className='border-b-2 px-3  pb-2 lg:mx-3 mx-2'>
                         Category
                     </button>
-                    <button className='border-b-2 px-3 text-2xl pb-2 mx-3'>
+                    <button className='border-b-2 px-3  pb-2 lg:mx-3 mx-2'>
                         Category
                     </button>
                 </div>
@@ -125,8 +125,8 @@ function Blog() {
                 </button>
             </div>
             <div className='w-full h-[130px] bg-black flex justify-between mb-10'>
-                <img src='https://iili.io/HK66Hhv.png' className='object-contain ml-24 w-[200px] h-[130px]'></img>
-                <div className='flex text-black items-center'>
+                <img src='https://iili.io/HK66Hhv.png' className='object-contain lg:ml-24 ml-6 lg:w-[200px] lg:h-[130px] w-[150px] h-[100px]'></img>
+                <div className='flex lg:m-0 ml-7 text-black items-center'>
                     <button className='p-3  mx-2 rounded-full bg-white hover:bg-blue-400 hover:text-white'>
                         <AiOutlineTwitter className='w-[25px] h-[25px]'/>
                     </button>
@@ -149,31 +149,51 @@ function Blog() {
                 <div className='mx-20'>
                 <p className='mt-2 text-gray-400 font-thin'>Never miss an insight. We'll email you when new articles are published.</p>
                 </div>
-                <div className='flex justify-between mb-5 mx-20 items-center'>
-                    <div>
-                    <input placeholder='Your email' className='w-[500px] absolute rounded-xl -z-10 mt-4 h-[40px] focus:outline-none px-3 bg-gray-200'>  
+                <div className='lg:flex  lg:flex-nowrap block  lg:justify-between  mb-5 mx-20 items-center'>
+                    <div className='flex mt-5 items-center'>
+                    <input placeholder='Your email' className='lg:w-[500px] w-[300px]  rounded-l-xl -z-10  h-[40px] focus:outline-none px-3 bg-gray-200'>  
               
               </input>
-              <button className=' z-10 w-[60px] absolute left-[510px] text-white  mt-[20px] rounded-2xl h-[33px] bg-black'>
+              <button className='  w-[60px]   text-white   rounded-r-xl h-[40px] bg-black'>
                   Join
               </button>
                  
                     </div>
-                    <div className=''>
+                    <div className='block mt-10 lg:flex'>
+                    <div  className='lg:mt-0 mt-3 '>
                         <a className='mx-6 text-bold border-b px-2 pb-2 font-bold tracking-wide border-gray-500'>
                             Home
                         </a>
+                        </div >
+                        <div className='lg:mt-0 mt-3'>
+                            
                         <a className='mx-6 text-bold border-b px-2 pb-2 font-bold tracking-wide border-gray-500'>
                             About us
                         </a>
+                        </div>
+                        <div  className='lg:mt-0 mt-3'>
                         <a className='mx-6 text-bold border-b px-2 pb-2 font-bold tracking-wide border-gray-500'>
                             Contact us
                         </a>
+                        </div>
+                        <div  className='lg:mt-0 mt-3'>
+
                         <a className='mx-6 text-bold border-b px-2 pb-2 font-bold tracking-wide border-gray-500'>
                             Privacy Policy
                         </a>
-                        <a className='mr-32 text-bold border-b px-2 pb-2 font-bold tracking-wide border-gray-500'>Term of use</a>
+                        </div>
+                        <div  className='lg:mt-0 mt-3'>
+
+                        <a className='mx-6 text-bold border-b px-2 pb-2 font-bold tracking-wide border-gray-500'>
+                         Term of use
+                         </a>
+                            </div>
+                      
                     </div>
+                     
+                     
+                 
+                 
 
                 
                 </div>
