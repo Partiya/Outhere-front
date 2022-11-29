@@ -4,7 +4,7 @@ import { AiOutlineClose } from 'react-icons/ai';
 import '../Login/animations.css'
 function Login() {
     return ( 
-            <div id='login' className='w-full hidden h-full fadein absolute z-10  bg-black/70'>
+            <div id='login' className='w-full hidden h-full fadein absolute z-10 backdrop-blur-sm  bg-black/70'>
                 <div className='flex w-full justify-center mt-56 '>
                 <div className='w-[450px] p-8 h-[450px] bg-white rounded-2xl'>
                 <div className='flex justify-between'>
@@ -44,7 +44,10 @@ function Login() {
                     Login
                 </button>
                 <div className='w-full flex justify-center'>
-                    <button className='mt-4 text-gray-400'>Haven’t any account?<span className='text-black font-medium'> Sign up here.</span></button>
+                    <button onClick={()=>{
+                        document.getElementById('login').classList.add('hidden')
+                        document.getElementById('register').classList.remove('hidden')
+                    }} className='mt-4 text-gray-400'>Haven’t any account?<span className='text-black font-medium'> Sign up here.</span></button>
                 </div>
                 </div>
                 </div>

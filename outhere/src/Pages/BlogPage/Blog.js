@@ -6,30 +6,48 @@ import ArticleCards from '../../Components/ArticleCards/Articlecards';
 import FeaturedArticle from '../../Components/FeaturedArticle/FeaturedArticle';
 import ArticleCard2 from '../../Components/ArticleCards/ArticleCards2';
 import Login from '../../Components/Login/Login';
+import Register from '../../Components/Register/Register';
+import '../BlogPage/animations.css'
+import Footer from '../../Components/Footer/Footer';
 function Blog() {
     return (
         <div scro id='main' className='h-full overflow-y-hidden'>
             <Login/>
+            <Register/>
             <div className='w-full h-[90px] items-center  flex justify-between '>
-                <div className=''>
+                <div className='lg:w-[800px]'>
                     <button>
                     <AiOutlineMenu className='w-[35px] h-[35px] ml-4 text-black'/>
                     </button>
                 </div>
-                <div>
-                    <p className='text-xl'>OUT HERE</p>
+                <div className='w-full flex justify-center  '>
+                    <p className='text-xl text-center' >OUT HERE</p>
                 </div>
-                <div className='flex items-center'>
-                    <button>
-                    <AiOutlineSearch className='w-[30px] h-[30px] mr-2'/>
+                <div className='flex w-[800px] justify-end  items-center'>
+                    <div  className='flex mr-2 float-right items-center'>
+                        <button>
+
+                        </button>
+                        <input id='search' placeholder='Category , Book name , ....' className='w-0 font-normal tracking-wide focus:outline-none   bg-gray-200 rounded-l-xl h-[40px]'>
+                        </input>
+                        <button  onClick={(e)=>{
+                            document.getElementById('search').classList.add('trnsleft')
+                            document.getElementById('search').classList.add('pl-2')
+                            e.currentTarget.classList.add('bg-gray-200')
+                            e.currentTarget.classList.add('rounded-r-xl')
+                        }}>
+                    <AiOutlineSearch className='w-[40px] h-[40px]    '/>
                     </button>
+                    </div>
+                  
                     <button onClick={()=>{
                         document.getElementById('login').classList.remove('hidden')
                         document.getElementById('login').classList.add('fadein')
                         document.getElementById('login').classList.remove('fadeout')
+                        document.getElementById('register').classList.remove('fadeout')
                     }
                 }>
-                    <TbUserCircle className='w-[30px] h-[30px] mr-4'/>
+                    <TbUserCircle className='w-[40px] h-[40px] mr-4'/>
                     </button>
 
                 </div>
@@ -148,74 +166,7 @@ function Blog() {
                     </button>
                 </div>
             </div>
-            <div className='mb-20'>
-          
-                <div className='mx-20'>
-                <p className='text-2xl font-bold mt-10'>The Daily Good Newsletter</p>
-                </div>
-                <div className='mx-20'>
-                <p className='mt-2 text-gray-400 font-thin'>Never miss an insight. We'll email you when new articles are published.</p>
-                </div>
-                <div className='lg:flex  lg:flex-nowrap block  lg:justify-between  mb-5 mx-20 items-center'>
-                    <div className='flex mt-5 items-center'>
-                    <input placeholder='Your email' className='lg:w-[500px] w-[300px]  rounded-l-xl -z-10  h-[40px] focus:outline-none px-3 bg-gray-200'>  
-              
-              </input>
-              <button className='  w-[60px]   text-white   rounded-r-xl h-[40px] bg-black'>
-                  Join
-              </button>
-                 
-                    </div>
-                    <div className='block mt-10 lg:flex'>
-                    <div  className='lg:mt-0 mt-3 '>
-                        <a className='mx-6 text-bold border-b px-2 pb-2 font-bold tracking-wide border-gray-500'>
-                            Home
-                        </a>
-                        </div >
-                        <div className='lg:mt-0 mt-3'>
-                            
-                        <a className='mx-6 text-bold border-b px-2 pb-2 font-bold tracking-wide border-gray-500'>
-                            About us
-                        </a>
-                        </div>
-                        <div  className='lg:mt-0 mt-3'>
-                        <a className='mx-6 text-bold border-b px-2 pb-2 font-bold tracking-wide border-gray-500'>
-                            Contact us
-                        </a>
-                        </div>
-                        <div  className='lg:mt-0 mt-3'>
-
-                        <a className='mx-6 text-bold border-b px-2 pb-2 font-bold tracking-wide border-gray-500'>
-                            Privacy Policy
-                        </a>
-                        </div>
-                        <div  className='lg:mt-0 mt-3'>
-
-                        <a className='mx-6 text-bold border-b px-2 pb-2 font-bold tracking-wide border-gray-500'>
-                         Term of use
-                         </a>
-                            </div>
-                      
-                    </div>
-                     
-                     
-                 
-                 
-
-                
-                </div>
-                <hr className='w-full mt-24'>
-                </hr>
-                <div className='flex w-full  justify-between'>
-                    <p className='mt-10 mx-20 text-gray-400'>
-                    Copyright  © 1996-2022  Company Name
-                    </p>
-                    <p className='mt-10 mx-20 text-gray-400'>
-                    You may not use images or content from this site without written permission.
-                    </p>
-                </div>
-                
-            </div>
+            <Footer/>
         </div>
      );
 }

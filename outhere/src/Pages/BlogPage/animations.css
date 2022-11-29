@@ -1,0 +1,5 @@
+.trnsleft{
+    width: 380px;
+    
+transition: width 1s ease 0s;
+}
