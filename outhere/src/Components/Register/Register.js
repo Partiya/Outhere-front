@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { AiOutlineClose } from 'react-icons/ai';
 import TextField from '@mui/material/TextField/TextField'
 import '../Register/animations.css'
-
+import axios from 'axios'
 
 function Register() {
 
@@ -19,7 +19,7 @@ function Register() {
         '^[a-zA-Z][0-9a-zA-Z .,-]*$'
     )
     const validPassword = new RegExp(
-        '^[A-Za-z0-9]{8,}$'
+        '^[A-Za-z0-9]{7,}$'
     )
     const[password,setPassword] = useState(String);
     const[reppassword,setReppassword] = useState(String);
@@ -32,14 +32,38 @@ function Register() {
     const[usernameerror,setUsernameerror] =useState(false)
     const[emailerror,setEmailerror] = useState(false)
     const[emailColor,setEmailcolor] = useState('')
+    const[passworderror,setPassworderror] = useState(false)
+    const[passwordcolor,setPasswordColor] = useState('')
+    const[reppassworderror,setReppassworderror] = useState(false)
+    const[reppasswordcolor,setReppasswordcolor] = useState('')
+    const[acceptTerms,setAcceptTerms] = useState(false)
     let validatedEmail = validEmail.test(email)
     let validatedName = validName.test(name)
     let validatedPassword = validPassword.test(password)
     let validatedUsername = validUsername.test(username)
-
+    const baseUrl = "http://192.168.1.39:8000/api/v1"
    async function handleRegister(){
+        
+    if(
+        password === reppassword &&
+        validatedEmail &&
+        validatedPassword &&
+        validatedName &&
+        validatedUsername
+    ){
+        axios.post(`${baseUrl}/auth/register/`,
+        {
+            email : email,
+            username : username,
+            password : password,
+            name : name,
 
-   
+        }
+        ).then((response)=>{
+            console.log(response.data)
+        }
+        )
+    }
 
 
 
@@ -104,7 +128,7 @@ function Register() {
                             }/>
                             <TextField label="Email" error={emailerror} color={emailColor}   variant="outlined" className='w-[360px] h-[80px]'onChange={(e)=>{
                                setEmail(e.currentTarget.value)
-                                console.log(validatedEmail)
+                              
 
                                 if(validatedEmail){
                                     setEmailerror(false)
@@ -115,15 +139,41 @@ function Register() {
                                 
                             } 
                             }/>
-                            <TextField  label="Password"    variant="outlined" type="password" className='w-[360px] h-[80px]'onChange={(e)=>setPassword(e.target.value)}/>
-                            <TextField  label="Reapeat password"   variant="outlined" type="password" className='w-[360px] h-[60px]'onChange={(e)=>setReppassword(e.target.value)}/>
+                            <TextField error={passworderror} color={passwordcolor} helperText="password must be at least 8 characters"  label="Password"    variant="outlined" type="password" className='w-[360px] h-[80px]'onChange={(e)=>{
+                               setPassword(e.currentTarget.value)
+                                console.log(validatedPassword)
+                                if(validatedPassword === true){
+                                    setPassworderror(false)
+                                    setPasswordColor("success")
+                                }else{
+                                    setPassworderror(true)
+                                }
+                                
+                            } 
+                            }/>
+                            <TextField  label="Reapeat password"   variant="outlined" type="password" className='w-[360px] h-[60px]'onChange={(e)=>{
+                                setReppassword(e.currentTarget.value)
+                                
+                           
+                                
+                            } 
+                            }/>
                             <div className='flex items-center ml-2'>
-                                <input type='checkbox'></input>
+                                <input type='checkbox' checked={acceptTerms} onChange={
+                                    (e)=>{
+                                        console.log(e.currentTarget.value)
+                                        setAcceptTerms(!acceptTerms)
+                                        console.log(acceptTerms)
+                                    }
+                                }></input>
                                 <p className='text-gray-400 text-sm ml-2'>I have read and I accept the <span className='text-black '>terms</span> and <span className='text-black '>Conditions</span></p>
                             </div>
                             <div className='w-full flex justify-center mt-3'>
-                            <button className='w-[300px] rounded-3xl h-[60px] bg-black text-white text-xl font-bold'>
+                            <button className='w-[300px] rounded-3xl h-[60px] bg-black text-white text-xl font-bold'onClick={()=>{
+                                handleRegister()
+                            }}>
                                 Sign up
+                                
                             </button>
                             </div>
                             <div className='flex w-full mt-5 justify-center'>
@@ -131,7 +181,7 @@ function Register() {
                             document.getElementById('login').classList.remove('hidden')
                             document.getElementById('register').classList.add('hidden')
                             document.getElementById('register').classList.remove('fadeout')
-                            handleRegister()
+                            
                             }}>
                             Are you a member? <span className='text-black font-medium'>Login here.</span>
                             </button>
